@@ -65,8 +65,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=UTC
-      - USER=admin
-      - PASS=nimdatx
+      - USER=${TRANSMISSION_USER:-"admin"}
+      - PASS=${TRANSMISSION_PASSWORD:-"nimdatx"}
 
     ## Comment below ports if VPN is enabled.
     ports:
@@ -200,7 +200,6 @@ services:
     restart: unless-stopped
 
 volumes:
-  torrent-downloads:
   radarr-config:
   sonarr-config:
   jackett-config:
